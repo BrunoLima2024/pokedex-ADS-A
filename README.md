@@ -11,13 +11,12 @@ Bem-vindo ao projeto Pokédex! Este é um aplicativo que permite explorar e cons
 - **Turma:** ADS-A
 - **Semestre:** 4º
 
-Este projeto utiliza a API pública do PokéAPI para obter dados atualizados sobre Pokémon, incluindo suas habilidades, tipos e evoluções. O objetivo é criar uma aplicação intuitiva e eficiente para fãs e desenvolvedores que desejam acessar informações detalhadas sobre o mundo dos Pokémon.
+Este projeto utiliza a API pública do PokéAPI para obter dados atualizados sobre Pokémon, incluindo suas habilidades, tipos. O objetivo é criar uma aplicação intuitiva e eficiente para fãs e desenvolvedores que desejam acessar informações detalhadas sobre o mundo dos Pokémon.
 
 ## Funcionalidades
 
 - Consulta de informações básicas sobre Pokémon, como nome, tipos e habilidades.
-- Pesquisa avançada com filtros por tipo e outras características.
-- Visualização de detalhes como estatísticas, evoluções e movimentos.
+- Pesquisa avançada
 
 ## Tecnologias Utilizadas
 
