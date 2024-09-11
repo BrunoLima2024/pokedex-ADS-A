@@ -1,4 +1,4 @@
-# Projeto Pokédex
+# ![Pikachu](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png) Projeto Pokédex
 
 ## Descrição
 
@@ -16,12 +16,13 @@ Este projeto utiliza a API pública do PokéAPI para obter dados atualizados sob
 ## Funcionalidades
 
 - Consulta de informações básicas sobre Pokémon, como nome, tipos e habilidades.
-- Pesquisa..
+- Pesquisa avançada com filtros por tipo e outras características.
+- Visualização de detalhes como estatísticas, evoluções e movimentos.
 
 ## Tecnologias Utilizadas
 
-- **Frontend:** HTML, CSS,
-- **Backend:** Typescript, Express
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** [Se aplicável, inclua as tecnologias de backend usadas]
 - **API:** PokéAPI (https://pokeapi.co/)
 
 ## Instalação
