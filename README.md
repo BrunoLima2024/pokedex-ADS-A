@@ -1,4 +1,4 @@
-# ![Pikachu](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png) Projeto Pokédex
+# <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" width="100" /> Projeto Pokédex
 
 ## Descrição
 
