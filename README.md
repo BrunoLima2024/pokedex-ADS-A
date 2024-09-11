@@ -31,6 +31,15 @@ Para rodar este projeto localmente, siga os passos abaixo:
 1. Clone o repositório:
    ```bash
    git clone https://github.com/BrunoLima2024/pokedex-ADS-A.git
-2. Install node modules
-```bash
+
+2. Baixar node js no site official
+   ```bash
+   https://nodejs.org/pt
+3. Instalar node modules
+   ```bash
    npm install
+4. Rode start para começar
+   ```bash
+   npm start
+O servidor ira abrir em algumas porta (Padrão é localhost:3000 mas verifique as outras portas caso não estiver disponível).
+# <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/258.png" alt="Mudkip" width="100" />
