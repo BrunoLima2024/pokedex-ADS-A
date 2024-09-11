@@ -34,4 +34,3 @@ Para rodar este projeto localmente, siga os passos abaixo:
 2. Install node modules
 ```bash
    npm install
-   
