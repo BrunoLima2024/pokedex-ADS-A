@@ -31,3 +31,7 @@ Para rodar este projeto localmente, siga os passos abaixo:
 1. Clone o repositório:
    ```bash
    git clone https://github.com/BrunoLima2024/pokedex-ADS-A.git
+2. Install node modules
+```bash
+   npm install
+   
