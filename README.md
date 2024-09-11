@@ -42,4 +42,4 @@ Para rodar este projeto localmente, siga os passos abaixo:
    ```bash
    npm start
 O servidor ira abrir em algumas porta (Padrão é localhost:3000 mas verifique as outras portas caso não estiver disponível).
-# <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/258.png.png" alt="Mudkip" width="100" />
+# <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/258.png" alt="Mudkip" width="100" />
