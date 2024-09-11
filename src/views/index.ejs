@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeDex Unicesumar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow: auto; /* Permitir rolagem */
+            position: relative;
+            background-color: #f5f5f5;
+        }
+
+        /* Fundo animado */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none; /* Garantir que o fundo não interfira com a interação do usuário */
+        }
+
+        .background img {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.8;
+            animation: float 12s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-150px); }
+            100% { transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .search-container {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .search-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-container input[type="text"]:focus {
+            border-color: #007bff;
+        }
+
+        .pokemon-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px; /* Espaçamento entre os blocos */
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pokemon-item {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            text-align: left; /* Alinha o texto à esquerda */
+        }
+
+        .pokemon-item:hover {
+            background-color: #f0f0f0;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            transform: scale(1.05); /* Aumenta o tamanho do bloco */
+        }
+
+        .pokemon-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .pokemon-item a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        .pokemon-item a:hover {
+            text-decoration: underline;
+        }
+
+        .masterball-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            background: url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png') no-repeat center center;
+            background-size: cover;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+            z-index: 10; /* Garantir que o botão fique sobre outros elementos */
+        }
+
+        .masterball-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <!-- Repetir a imagem de Pokébola -->
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" style="top: 10%; left: 10%; animation-delay: 0s;">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" style="top: 40%; left: 30%; animation-delay: 2s;">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" style="top: 20%; left: 60%; animation-delay: 4s;">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" style="top: 60%; left: 40%; animation-delay: 6s;">
+    </div>
+
+    <h1>PokeDex Unicesumar</h1>
+    
+    <!-- Barra de Pesquisa -->
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar Pokémon...">
+    </div>
+
+    <!-- Botão Master Ball -->
+    <button class="masterball-button" id="random-pokemon-button"></button>
+
+    <div class="pokemon-list">
+        <% results.forEach(pokemon => { %>
+            <div class="pokemon-item">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/<%= pokemon.id %>.png" alt="<%= pokemon.name %>">
+                <a href="/detalhar/<%= pokemon.name %>"><%= pokemon.name %></a>
+            </div>
+        <% }) %>
+    </div>
+
+    <script>
+        // JavaScript para filtrar Pokémon baseado na barra de pesquisa
+        document.getElementById('search').addEventListener('input', function() {
+            let query = this.value.toLowerCase();
+            let pokemonItems = document.querySelectorAll('.pokemon-item');
+            pokemonItems.forEach(function(item) {
+                let pokemonName = item.querySelector('a').textContent.toLowerCase();
+                if (pokemonName.includes(query)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // JavaScript para gerar um Pokémon aleatório
+        document.getElementById('random-pokemon-button').addEventListener('click', function() {
+            const maxPokemonId = 898; // Número máximo de Pokémon disponíveis na PokeAPI
+            const randomId = Math.floor(Math.random() * maxPokemonId) + 1;
+            window.location.href = `/detalhar/${randomId}`;
+        });
+    </script>
+</body>
+</html>
