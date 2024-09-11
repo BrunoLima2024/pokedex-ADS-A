@@ -20,8 +20,8 @@ Este projeto utiliza a API pública do PokéAPI para obter dados atualizados sob
 
 ## Tecnologias Utilizadas
 
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** [Se aplicável, inclua as tecnologias de backend usadas]
+- **Frontend:** HTML, CSS, TypeScript
+- **Backend:** TypeScript, Express
 - **API:** PokéAPI (https://pokeapi.co/)
 
 ## Instalação
